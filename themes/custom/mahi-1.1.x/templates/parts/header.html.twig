@@ -1,0 +1,50 @@
+<header class="header light">
+  {% if page.header_top %}
+    <div class="header-top">
+      <div class="container">
+        <div class="header-top-block">
+          {{ page.header_top }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="header-main">
+    <div class="container">
+      <div class="header-main-container">
+        {% if page.site_branding %}
+          <div class="site-branding-region">
+            {{ page.site_branding }}
+          </div> <!--/.site-branding -->
+        {% endif %}
+        {% if page.primary_menu %}
+          <div class="header-right">
+            {% if page.primary_menu %}
+              <div class="mobile-menu-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div><!-- /mobile-menu -->
+              <div class="primary-menu-wrapper">
+                <div class="menu-wrap">
+                  <div class="close-mobile-menu">X</div>
+                  {{ page.primary_menu }}
+                </div>
+              </div><!-- /primary-menu-wrapper -->
+            {% endif %}
+            <div><button type="button">Get started</button></div>
+              
+          </div><!--/.header-right -->
+        {% endif %}
+      </div><!--/header-main-container -->
+    </div><!--/container-->
+  </div><!--/header-main-->
+  {% if is_front and slider_show %}
+    {% include '@mahi/views/views-view-unformatted--home-page--block-1.html.twig' %}
+  {% elseif not is_front and page.page_header %}
+    <div class="page-header">
+      <div class="container-fluid">
+        {{ page.page_header }}
+      </div><!--/container-->
+    </div>
+  {% endif %}
+</header>

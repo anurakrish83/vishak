@@ -1,0 +1,35 @@
+<div class="views-element-container block" id="block-views-block-blog-block-2">
+  
+  <h2 class="block-title">Latest News and Articles</h2>
+
+  <div class="block-content">
+  <div><div class="">
+  
+  <div class="view-content">
+  <div>
+
+<ul class="items gap">
+  {% for row in rows %}
+      <li class="box"><div><div>  <a href="/mahi/blog/how-to-use-yourtube-for-marketing" hreflang="en"><img loading="lazy" src="{{row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_image }}'] }}" width="450" height="225" alt="How To Use YourTube For Marketing" class="image-field">
+
+</a>
+</div></div>
+<div class="views-field views-field-title"><span class="field-content"><a href="#" hreflang="en">{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_category }}'] }}</a></span></div>
+
+<div class="views-field views-field-title"><span class="field-content"><p>{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ title }}'] }}</p></span></div>
+<div class="views-field views-field-title"><span class="field-content"><p>{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ Uid }}'] }}</p></span></div>
+<div class="views-field views-field-title"><span class="field-content"><p>{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ revision_timestamp }}'] }}</p></span></div>
+
+</li>
+{% endfor %}
+</ul>
+
+</div>
+
+</div>
+
+      </div>
+</div>
+
+</div><!--/block-content -->
+</div>

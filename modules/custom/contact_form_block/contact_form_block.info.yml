@@ -1,0 +1,7 @@
+name: 'Contact Form Block'
+type: module
+description: 'Provides a custom form within a block.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - drupal:system

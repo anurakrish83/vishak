@@ -1,0 +1,46 @@
+{{ attach_library('mahi/slider') }}
+<div class="slider">
+  <div class="container-fluid">
+    <div class="splide" role="group" aria-label="webSite slider">
+      <div class="splide__track">
+     
+        <ul class="splide__list">
+          {% if slider_code != '' %}
+            {{ slider_code | striptags('<ol>,<ul>,<li>,<p>,<a>,<img>,<video>,<audio>,<h1>,<h2>,<h3>,<h4>,<em>,<strong>,<br>,<i>,<div>,<span>,<button>,<mark>,<hr>,<del>,<sup>,<sub>,<svg>') | raw }}
+          {% else %}
+          {% for row in rows %}
+        
+          <li class="splide__slide" style="background-image: url( '/vishak_india/sites/default/files/2024-11/home_banner/8efa793c53b53dea4962269043b64ab4.jpg ');">
+            <div class="slider-text">
+              <h2>{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_sub_title }}'] }}</h2>
+              <p>{{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ body }}'] }}</p>
+              <div>
+                {% if  row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_banner_left_buttons }}']  != '' %}
+                {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_banner_left_buttons }}'] }}
+                {% endif %}
+                {% if  row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_banner_right_buttons }}']  != '' %}
+                {{ row.content['#view'].style_plugin.render_tokens[ loop.index0 ]['{{ field_banner_right_buttons }}'] }}</div>
+                {% endif %}
+                
+            </div>
+          </li>
+          {% endfor %}
+          {% endif %}
+        </ul>
+      </div><!--/splide__track -->
+    </div><!--/splide-->
+  </div><!--/container-->
+</div><!--/slider-->
+<script>
+  document.addEventListener( 'DOMContentLoaded', function() {
+    var splide = new Splide( '.splide', {
+      perPage: 1,
+      autoplay: true,
+      rewind: true,
+      pauseOnHover: false,
+      interval: 5000,
+      arrowPath: 'M0.5 1L20 20.5L0.5 41.5',
+    } );
+    splide.mount();
+  } );
+</script>
